@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvj3vcg805tsj"
-path="res://.godot/imported/Hotline ZAM.icon.png-d1f487244d8d1d2fcae0999c510c90da.ctex"
+uid="uid://dwy2qwgnn6aoc"
+path="res://.godot/imported/Hotline ZAM.png-c021d0c1525f697b87a2d39d0d00eabf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/Hotline ZAM.icon.png"
-dest_files=["res://.godot/imported/Hotline ZAM.icon.png-d1f487244d8d1d2fcae0999c510c90da.ctex"]
+source_file="res://docs/Hotline ZAM.png"
+dest_files=["res://.godot/imported/Hotline ZAM.png-c021d0c1525f697b87a2d39d0d00eabf.ctex"]
 
 [params]
 
