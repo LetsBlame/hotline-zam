@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://duw3txsvl5sfn"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="HealthContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="L_Health" type="Label" parent="HealthContainer"]
+layout_mode = 2
+text = "Health: "
+
+[node name="Healthbar" type="TextureProgressBar" parent="HealthContainer"]
+layout_mode = 2
+value = 100.0
+
+[node name="AmmoContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="L_Ammo" type="Label" parent="AmmoContainer"]
+layout_mode = 2
+text = "Ammo:"
+
+[node name="L_Ammo_Num" type="Label" parent="AmmoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ammo:"
+
+[node name="WaveInfoContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="L_Wave" type="Label" parent="WaveInfoContainer"]
+layout_mode = 2
+text = "Wave:"
+
+[node name="L_Wave_Num" type="Label" parent="WaveInfoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ammo:"
