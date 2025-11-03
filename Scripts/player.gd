@@ -7,27 +7,43 @@ var health: int
 func _ready() -> void:
 	health = max_health
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Aim"):
+		%HeadLight.enabled = false
+		%FlashLight.enabled = true
+		$Anims.play("Aim")
+
+	if event.is_action_released("Aim"):
+		%HeadLight.enabled = true
+		%FlashLight.enabled = false
+		$Anims.play_backwards("Aim")
+		
+	if event.is_action_pressed("Shoot"):
+		shoot()
+		
 
 func _physics_process(_delta: float) -> void:
 	
-	var input_dir = Vector2.ZERO
-	
-	if Input.is_action_pressed("Up"): input_dir.y -= 1
-	if Input.is_action_pressed("Down"): input_dir.y += 1
-	if Input.is_action_pressed("Left"): input_dir.x -= 1
-	if Input.is_action_pressed("Right"): input_dir.x += 1
-	
-	if input_dir:
-		velocity = input_dir.normalized() * speed
-	else:
-		velocity = Vector2.ZERO
-
+	velocity = Input.get_vector("Left","Right","Up","Down") * speed
 	move_and_slide()
-
+	
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("Shoot"):
-		shoot()
+	
+	#var input_dir = Vector2.ZERO
+	#
+	#if Input.is_action_pressed("Up"): input_dir.y -= 1
+	#if Input.is_action_pressed("Down"): input_dir.y += 1
+	#if Input.is_action_pressed("Left"): input_dir.x -= 1
+	#if Input.is_action_pressed("Right"): input_dir.x += 1
+	#
+	#if input_dir:
+		#velocity = input_dir.normalized() * speed
+	#else:
+		#velocity = Vector2.ZERO
+
+
+
 
 func shoot():
 	pass
