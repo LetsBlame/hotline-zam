@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://lfio1ugsj8dh"]
+
+[ext_resource type="Texture2D" uid="uid://c4vdodfuafca4" path="res://Sprites/tilesheet.png" id="1_6ape6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwcfc"]
+atlas = ExtResource("1_6ape6")
+region = Rect2(448, 512, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03k1b"]
+atlas = ExtResource("1_6ape6")
+region = Rect2(64, 512, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2uhu"]
+atlas = ExtResource("1_6ape6")
+region = Rect2(320, 512, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_actkv"]
+atlas = ExtResource("1_6ape6")
+region = Rect2(192, 512, 62, 62)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwcfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03k1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2uhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_actkv")
+}],
+"loop": false,
+"name": &"Hands",
+"speed": 5.0
+}]

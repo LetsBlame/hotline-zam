@@ -2,23 +2,27 @@ extends CharacterBody2D
 
 @export var speed: int = 200
 @export var max_health: int = 100 
-var health: int 
+var health: int
+var aiming := false
 
 func _ready() -> void:
 	health = max_health
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Aim"):
+		aiming = true
 		%HeadLight.enabled = false
 		%FlashLight.enabled = true
 		$Anims.play("Aim")
 
 	if event.is_action_released("Aim"):
+		aiming = false
 		%HeadLight.enabled = true
 		%FlashLight.enabled = false
-		$Anims.play_backwards("Aim")
+		$Anims.play("UnAim")
 		
-	if event.is_action_pressed("Shoot"):
+	if event.is_action_pressed("Shoot") and aiming:
+		$Anims.play("Shoot")
 		shoot()
 		
 
