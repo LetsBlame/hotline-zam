@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwy2qwgnn6aoc"
-path="res://.godot/imported/Hotline ZAM.png-c021d0c1525f697b87a2d39d0d00eabf.ctex"
+uid="uid://dwewxerhh4oms"
+path="res://.godot/imported/index.apple-touch-icon.png-b21a756d869f84af832970a74d8371bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/Hotline ZAM.png"
-dest_files=["res://.godot/imported/Hotline ZAM.png-c021d0c1525f697b87a2d39d0d00eabf.ctex"]
+source_file="res://docs/index.apple-touch-icon.png"
+dest_files=["res://.godot/imported/index.apple-touch-icon.png-b21a756d869f84af832970a74d8371bc.ctex"]
 
 [params]
 
