@@ -15,6 +15,10 @@ run/main_scene="uid://sawl8gc1s3mt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
 [display]
 
 window/stretch/mode="viewport"

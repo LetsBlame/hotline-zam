@@ -22,8 +22,9 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_level_button_pressed(level_num):
-	#GameManager.current_level = level_number
+	GameManager.current_level = level_num
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level_%d.tscn" % level_num)
+	
 
 #func create_level_buttons() ->void:
 	#pass
