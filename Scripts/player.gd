@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 enum State {IDLE, AIMING, SHOOTING, RELOADING}
 
-@export var speed: int = 200
+@export var speed := 200
 @export var max_health: int = 100 
 var health: int
+var arrow = preload("res://Scenes/Arrow.tscn")
+
 #var aiming := false
 var current_state := State.IDLE
 
@@ -59,10 +61,16 @@ func _physics_process(_delta: float) -> void:
 	#else:
 		#velocity = Vector2.ZERO
 
-
+func take_damage(damage: int):
+	$HurtAnim.play("Hurt")
+	health -= damage
 
 
 func shoot():
+	var bullet = arrow.instantiate()
+	bullet.transform = %ShootPosition.global_transform
+	#bullet.rotation -= 90
+	owner.add_child(bullet)
 	#current_state = State.IDLE
 	pass
 

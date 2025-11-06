@@ -1,0 +1,502 @@
+[gd_scene load_steps=31 format=3 uid="uid://jbnt7xmsmgiy"]
+
+[ext_resource type="Texture2D" uid="uid://c4vdodfuafca4" path="res://Sprites/tilesheet.png" id="1_m1htj"]
+[ext_resource type="Script" uid="uid://uchpc3ljpe1c" path="res://Scripts/enemy.gd" id="1_wovta"]
+[ext_resource type="Texture2D" uid="uid://beul0clgcfi23" path="res://Sprites/light_cone.png" id="2_xeo28"]
+[ext_resource type="Texture2D" uid="uid://cnj2tmdbw7fqp" path="res://Sprites/light_sphere.png" id="4_kpr8r"]
+[ext_resource type="SpriteFrames" uid="uid://lfio1ugsj8dh" path="res://Sprites/Hands.tres" id="5_1exfc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(384, 512, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(0, 512, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(256, 512, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(128, 512, 62, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wovta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}],
+"loop": false,
+"name": &"BodyColors",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idouy"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(384, 640, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o0ue"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(448, 640, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s1gy"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(512, 640, 62, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uihya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idouy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o0ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s1gy")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo1ky"]
+size = Vector2(45, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1exfc"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(128, 576, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo1ky"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(64, 640, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bs3c"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(256, 576, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoxpr"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(256, 640, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27ry8"]
+atlas = ExtResource("1_m1htj")
+region = Rect2(512, 640, 62, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_idouy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1exfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo1ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bs3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoxpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27ry8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1exfc"]
+size = Vector2(9, 38)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1htj"]
+radius = 19.104973
+
+[sub_resource type="Animation" id="Animation_m1htj"]
+resource_name = "Hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/LHand:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/RHand:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_wovta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/RHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/RHand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/LHand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, -19)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/LHand:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/RHand:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/LHand:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1exfc"]
+resource_name = "Attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/RHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10041714, 0.30022147, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(31, 16), Vector2(24.05, 28.03), Vector2(38.27, 1.925), Vector2(31, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/RHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10041714, 0.30022147, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.806415775814131, -0.80634211442138, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/LHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.100674614, 0.26666668, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(30, -19), Vector2(28.565, -23.38), Vector2(17.745, -28.035), Vector2(30, -19)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/LHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.100674614, 0.26666668, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.5759586531581288, -1.103048087260416, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xeo28"]
+_data = {
+&"Attack": SubResource("Animation_1exfc"),
+&"Hurt": SubResource("Animation_m1htj"),
+&"RESET": SubResource("Animation_wovta")
+}
+
+[sub_resource type="Animation" id="Animation_mo1ky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/RHand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/LHand:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_6bs3c"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/RHand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/LHand:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uoxpr"]
+_data = {
+&"Hurt": SubResource("Animation_6bs3c"),
+&"RESET": SubResource("Animation_mo1ky")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_wovta")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wovta")
+animation = &"BodyColors"
+frame = 2
+
+[node name="Cone" type="PointLight2D" parent="Sprite"]
+position = Vector2(49, 0)
+rotation = 1.5707964
+color = Color(1, 0.9490196, 0.8392157, 1)
+energy = 0.8
+blend_mode = 2
+texture = ExtResource("2_xeo28")
+texture_scale = 0.5
+
+[node name="Circle" type="PointLight2D" parent="Sprite"]
+rotation = 1.5707964
+color = Color(1, 0.9490196, 0.8392157, 1)
+energy = 0.8
+blend_mode = 2
+texture = ExtResource("4_kpr8r")
+texture_scale = 0.5
+
+[node name="LHand" type="AnimatedSprite2D" parent="Sprite"]
+z_index = 10
+position = Vector2(30, -19)
+sprite_frames = ExtResource("5_1exfc")
+animation = &"Hands"
+frame = 2
+
+[node name="Shield" type="AnimatedSprite2D" parent="Sprite/LHand"]
+z_as_relative = false
+position = Vector2(15, -2)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_uihya")
+
+[node name="Area2D" type="Area2D" parent="Sprite/LHand/Shield" groups=["Shield"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/LHand/Shield/Area2D" groups=["Shield"]]
+position = Vector2(-1.0331603e-07, -3)
+shape = SubResource("RectangleShape2D_mo1ky")
+
+[node name="RHand" type="AnimatedSprite2D" parent="Sprite"]
+z_index = 10
+position = Vector2(31, 16)
+sprite_frames = ExtResource("5_1exfc")
+animation = &"Hands"
+frame = 2
+
+[node name="Sword" type="AnimatedSprite2D" parent="Sprite/RHand"]
+z_as_relative = false
+position = Vector2(30, 1)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_idouy")
+
+[node name="Area2D" type="Area2D" parent="Sprite/RHand/Sword"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/RHand/Sword/Area2D"]
+position = Vector2(1, -6)
+shape = SubResource("RectangleShape2D_1exfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_m1htj")
+
+[node name="Anims" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_xeo28")
+}
+
+[node name="Hurt" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uoxpr")
+}
+
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+avoidance_enabled = true
+radius = 25.0
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.9214954, 0.12415073, 0.21671072, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -27.0
+offset_top = 26.0
+offset_right = 27.0
+offset_bottom = 31.0
+mouse_filter = 2
+value = 100.0
+rounded = true
+show_percentage = false
+
+[connection signal="body_entered" from="Sprite/RHand/Sword/Area2D" to="." method="_on_sword_hit"]
+[connection signal="animation_finished" from="Anims" to="." method="_on_animation_finished"]
+[connection signal="target_reached" from="NavAgent" to="." method="_on_nav_agent_target_reached"]
+[connection signal="velocity_computed" from="NavAgent" to="." method="_on_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
