@@ -2,20 +2,38 @@ extends CharacterBody2D
 
 enum state {IDLE, WANDER, CHASE, ATTACK}
 
-@export var speed := 170
+@export var speed := randi_range(140,170)
 @export var damage := 20
-@export var health:= 100 : set = on_health_changed
+@export var health:= 70 : set = on_health_changed
 @export var attack_radius := 100
 
 @onready var NavAgent := get_node("%NavAgent")
+@onready var type = randi_range(0,2)
+@onready var shielded = randi_range(0,2)
+@onready var PlayerRef: CharacterBody2D = owner.get_node("Player")
 
 var movement_delta: float
-var PlayerRef: CharacterBody2D
 var current_state:= state.IDLE
 
 
 func _ready() -> void:
-	PlayerRef = owner.get_node("Player")
+	$Timer.wait_time = randf_range(0.5,3.5)
+	$Timer.start()
+	
+	%Sword.frame = type
+	%Shield.frame = shielded
+	match type:
+		0:
+			%SwordCollision.shape.size = Vector2(8,38)
+			%SwordCollision.position = Vector2(1,-6)
+		1: 
+			%SwordCollision.shape.size = Vector2(38,33)
+			%SwordCollision.position = Vector2(1,-8.5)
+		2:
+			%SwordCollision.shape.size = Vector2(29,17)
+			%SwordCollision.position = Vector2(0.5,-16.5)
+	
+	#PlayerRef = 
 	#var player_transform = PlayerRef.get_global_transform()
 	#print(player_transform.origin)
 	#set_movement_target(player_transform.origin)
@@ -58,19 +76,30 @@ func set_movement_target(movement_target: Vector2):
 
 
 func take_damage(_damage: int):
+	#print(current_state)
+	if current_state == state.IDLE or current_state == state.WANDER:
+		%Anims.play("Fight")
+		#print(shielded)
+		if shielded != 2:
+			%ShieldCollision.set_deferred("disabled",false)
+			%SwordCollision.set_deferred("disabled",false)
+			#print(%ShieldCollision.disabled)
 	$Hurt.play("Hurt")
 	health -= _damage
 	current_state = state.CHASE
+	$ProgressBar.show()
 	
 
 func on_health_changed(value):
 	health = value
 	$ProgressBar.value = health
 	if health <= 0:
+		GameManager.level_kills += 1
 		queue_free()
 
 
 func _on_timer_timeout() -> void:
+	$Timer.wait_time = randf_range(0.5,3.5)
 	if current_state == state.IDLE:
 		current_state = state.WANDER
 		#randf_range(-30,30)

@@ -11,6 +11,10 @@ func _ready() -> void:
 		button.custom_minimum_size = Vector2(200, 60)
 		button.connect("pressed", _on_level_button_pressed.bind(level_num))
 		level.add_child(button)
+		
+		var label = Label.new()
+		label.text = "\t" + str(GameManager.scores[level.get_index()])
+		level.add_child(label)
 	
 	
 	

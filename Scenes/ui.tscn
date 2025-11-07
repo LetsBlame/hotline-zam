@@ -1,41 +1,73 @@
-[gd_scene format=3 uid="uid://duw3txsvl5sfn"]
+[gd_scene load_steps=4 format=3 uid="uid://duw3txsvl5sfn"]
+
+[ext_resource type="Script" uid="uid://coqgixvt71rdj" path="res://Scripts/ui.gd" id="1_jxero"]
+[ext_resource type="Theme" uid="uid://cxjd1bcpbkhxs" path="res://Theme/MainTheme.tres" id="2_qdvrb"]
+[ext_resource type="PackedScene" uid="uid://5ju62stw70ig" path="res://Scenes/RoundTimer.tscn" id="3_nf4gj"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_jxero")
 
 [node name="HealthContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+texture_filter = 1
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 260.0
+offset_bottom = 81.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("2_qdvrb")
 
 [node name="L_Health" type="Label" parent="HealthContainer"]
 layout_mode = 2
-text = "Health: "
+text = "Vida: "
 
-[node name="Healthbar" type="TextureProgressBar" parent="HealthContainer"]
+[node name="Healthbar" type="ProgressBar" parent="HealthContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 15)
 layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
 value = 100.0
+show_percentage = false
+
+[node name="KillInfoContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
+offset_left = 890.0
+offset_top = 61.0
+offset_right = 1098.0
+offset_bottom = 101.0
+mouse_filter = 2
+theme = ExtResource("2_qdvrb")
+
+[node name="L_Kills" type="Label" parent="KillInfoContainer"]
+layout_mode = 2
+text = "Asesinatos:"
+
+[node name="L_Kills_Num" type="Label" parent="KillInfoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 / 0"
 
 [node name="AmmoContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+texture_filter = 1
+offset_left = 886.0
+offset_top = 26.0
+offset_right = 1010.0
+offset_bottom = 66.0
+mouse_filter = 2
+theme = ExtResource("2_qdvrb")
+
+[node name="RoundTimer" parent="AmmoContainer" instance=ExtResource("3_nf4gj")]
+unique_name_in_owner = true
 
 [node name="L_Ammo" type="Label" parent="AmmoContainer"]
+visible = false
 layout_mode = 2
 text = "Ammo:"
 
 [node name="L_Ammo_Num" type="Label" parent="AmmoContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
-text = "Ammo:"
-
-[node name="WaveInfoContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="L_Wave" type="Label" parent="WaveInfoContainer"]
-layout_mode = 2
-text = "Wave:"
-
-[node name="L_Wave_Num" type="Label" parent="WaveInfoContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Ammo:"
+text = "Num"

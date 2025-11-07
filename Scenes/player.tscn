@@ -109,6 +109,46 @@ tracks/5/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_f1ek2"]
+resource_name = "Hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/LeftHand:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/RightHand:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
 [sub_resource type="Animation" id="Animation_fkybt"]
 length = 0.001
 tracks/0/type = "value"
@@ -412,46 +452,6 @@ tracks/5/keys = {
 "values": [1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_f1ek2"]
-resource_name = "Hurt"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.03333333, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/LeftHand:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Body/RightHand:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wgy"]
 _data = {
 &"Aim": SubResource("Animation_vgqql"),
@@ -554,23 +554,21 @@ script = ExtResource("1_cvnsp")
 
 [node name="HeadLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-light_mask = 3
 rotation = 1.5707964
 color = Color(1, 0.9490196, 0.8392157, 1)
 energy = 0.8
-range_item_cull_mask = 3
+blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("2_vgqql")
 
 [node name="FlashLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-light_mask = 3
 position = Vector2(0.38835144, 0.12365342)
 rotation = 1.5707964
 enabled = false
 color = Color(1, 0.94707793, 0.83795714, 1)
 energy = 0.8
-range_item_cull_mask = 3
+blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("2_6t5aa")
 offset = Vector2(-0.5159853, -126.533356)

@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cxjd1bcpbkhxs"]
+
+[ext_resource type="FontFile" uid="uid://b3nad86iqpj1w" path="res://Theme/quaver.ttf" id="1_jme7d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s18r"]
+bg_color = Color(0.7285387, 0.69090897, 0.6097082, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4as0w"]
+bg_color = Color(0.79993856, 0.28591955, 0.29657057, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_jme7d")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8s18r")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_4as0w")

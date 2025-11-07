@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ju62stw70ig"]
+
+[ext_resource type="Script" uid="uid://b2xb1opyqpdoj" path="res://Scripts/round_timer.gd" id="1_5u0tb"]
+[ext_resource type="Theme" uid="uid://cxjd1bcpbkhxs" path="res://Theme/MainTheme.tres" id="2_unyp1"]
+
+[node name="RoundTimer" type="Node2D"]
+script = ExtResource("1_5u0tb")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("2_unyp1")
+text = "Tiempo: %02d:%05.2f"

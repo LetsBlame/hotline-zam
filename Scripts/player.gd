@@ -3,16 +3,16 @@ extends CharacterBody2D
 enum State {IDLE, AIMING, SHOOTING, RELOADING}
 
 @export var speed := 200
-@export var max_health: int = 100 
-var health: int
+#@export var max_health: int = 100 
+#var health: int
 var arrow = preload("res://Scenes/Arrow.tscn")
 
 #var aiming := false
 var current_state := State.IDLE
 
-func _ready() -> void:
-	health = max_health
-	print(GameManager.current_level)
+#func _ready() -> void:
+	##health = max_health
+	#print(GameManager.current_level)
 
 func _input(event: InputEvent) -> void:
 	#if event is InputEventMouseButton:
@@ -63,7 +63,9 @@ func _physics_process(_delta: float) -> void:
 
 func take_damage(damage: int):
 	$HurtAnim.play("Hurt")
-	health -= damage
+	GameManager.health -= damage
+	#if GameManager.health <= 0:
+
 
 
 func shoot():

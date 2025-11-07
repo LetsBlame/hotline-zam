@@ -25,3 +25,17 @@ layout_mode = 2
 
 [node name="VFlowContainer3" type="VFlowContainer" parent="Levels"]
 layout_mode = 2
+
+[node name="HighScores" type="FlowContainer" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 2.0
+offset_right = 386.0
+offset_bottom = 52.0
+
+[node name="Label" type="Label" parent="HighScores"]
+layout_mode = 2
+text = "Mejores tiempos"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="HighScores"]
+layout_mode = 2
