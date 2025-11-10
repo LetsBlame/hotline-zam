@@ -30,6 +30,8 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [resource]
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_jme7d")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_jme7d")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_8s18r")

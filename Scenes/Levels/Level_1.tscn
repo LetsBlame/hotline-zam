@@ -1,6 +1,5 @@
-[gd_scene load_steps=75 format=4 uid="uid://bhbvfupkeqskt"]
+[gd_scene load_steps=74 format=4 uid="uid://bhbvfupkeqskt"]
 
-[ext_resource type="PackedScene" uid="uid://eiorppj5tylb" path="res://Scenes/player.tscn" id="1_7pr3o"]
 [ext_resource type="Texture2D" uid="uid://c4vdodfuafca4" path="res://Sprites/tilesheet.png" id="1_87l2y"]
 [ext_resource type="PackedScene" uid="uid://duw3txsvl5sfn" path="res://Scenes/ui.tscn" id="1_cp10e"]
 [ext_resource type="Script" uid="uid://betxo4wy1ej6o" path="res://Scripts/level_manager.gd" id="3_q8yj7"]
@@ -589,9 +588,6 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAP//AAABAAAAAAABAP//AAACAAAAAAACAP//AAADAAAAAAABAAEAAAADAAAAAAACAAEAAAADAAAAAAADAAEAAAAEAAAAAAAEAAAAAAADAAcAAAAAAAIAAAADAAAAAGAAAAEAAAACAAAAAAAAAAMAAAADAAAAAGAAAAQAAAACAAAAAGABAAQAAAADAAAAADACAAQAAAADAAMAADADAAQAAAADAAAAADAFAAQAAAADAAMAADAEAAQAAAADAAAAADABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAAAAUAAAAHAAAAAAABAAUAAAAHAAAAAAAGAAQAAAACAAAAADAGAAMAAAADAAAAAHAGAAIAAAAEAAEAAFAGAAEAAAACAAAAAFAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAHAAAAAAAHAAYAAAAHAAAAAAAGAAYAAAAHAAAAAAAFAAYAAAAHAAAAAAAEAAYAAAAHAAAAAAADAAYAAAAHAAAAAAACAAYAAAAHAAAAAAABAAYAAAAHAAAAAAAAAAYAAAAHAAAAAAAEAAEAAAADAAAAAAAEAAMAAAAAAAEAAAACAAUAAAAHAAAAAAADAAUAAAAHAAAAAAAFAAUAAAAEAAcAAAAGAAUAAAAHAAAAAAAEAAUAAAAHAAAAAAAFAAEAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_qpfou")
 
-[node name="Player" parent="." instance=ExtResource("1_7pr3o")]
-position = Vector2(270, 360)
-
 [node name="Leaves" type="TileMapLayer" parent="."]
 z_index = 15
 texture_filter = 1
@@ -607,7 +603,7 @@ navigation_enabled = false
 script = ExtResource("3_q8yj7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(1, 0.9490196, 0.8392157, 1)
+color = Color(0.06549915, 0.03861602, 1.2032688e-08, 1)
 
 [node name="Enemy" parent="." instance=ExtResource("5_qpfou")]
 position = Vector2(81, 130)

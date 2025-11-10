@@ -8,15 +8,17 @@ enum state {IDLE, WANDER, CHASE, ATTACK}
 @export var attack_radius := 100
 
 @onready var NavAgent := get_node("%NavAgent")
-@onready var type = randi_range(0,2)
-@onready var shielded = randi_range(0,2)
-@onready var PlayerRef: CharacterBody2D = owner.get_node("Player")
+@onready var PlayerRef: CharacterBody2D = GameManager.PlayerRef
 
+var type: int
+var shielded: int
 var movement_delta: float
 var current_state:= state.IDLE
 
 
 func _ready() -> void:
+	type = randi_range(0,2)
+	shielded = randi_range(0,2)
 	$Timer.wait_time = randf_range(0.5,3.5)
 	$Timer.start()
 	
@@ -32,6 +34,7 @@ func _ready() -> void:
 		2:
 			%SwordCollision.shape.size = Vector2(29,17)
 			%SwordCollision.position = Vector2(0.5,-16.5)
+	%SwordArea.body_entered.connect(_on_sword_hit)
 	
 	#PlayerRef = 
 	#var player_transform = PlayerRef.get_global_transform()
@@ -80,9 +83,9 @@ func take_damage(_damage: int):
 	if current_state == state.IDLE or current_state == state.WANDER:
 		%Anims.play("Fight")
 		#print(shielded)
+		%SwordCollision.set_deferred("disabled",false)
 		if shielded != 2:
 			%ShieldCollision.set_deferred("disabled",false)
-			%SwordCollision.set_deferred("disabled",false)
 			#print(%ShieldCollision.disabled)
 	$Hurt.play("Hurt")
 	health -= _damage
@@ -125,5 +128,6 @@ func _on_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_sword_hit(body: Node2D) -> void:
+	print("HIT + %s" % body)
 	if body.has_method("take_damage"):
 		body.take_damage(damage)

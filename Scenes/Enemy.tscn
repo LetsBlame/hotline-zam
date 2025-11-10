@@ -176,6 +176,82 @@ tracks/3/keys = {
 "values": [0.0, -0.5759586531581288, -1.103048087260416, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_uoxpr"]
+resource_name = "Fight"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/RHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10013081, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(31, 16), Vector2(-12.87, 21.225), Vector2(31, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/RHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10013081, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 2.923426497090502, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/LHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10013081, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(30, -19), Vector2(-9.705, -21.525), Vector2(30, -19)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/LHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.10013081, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -2.1903882112528836, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/LHand/Shield:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.10013081),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/RHand/Sword:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.10013081),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="Animation" id="Animation_m1htj"]
 resource_name = "Hurt"
 length = 0.2
@@ -327,82 +403,6 @@ tracks/8/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_uoxpr"]
-resource_name = "Fight"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/RHand:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.10013081, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(31, 16), Vector2(-12.87, 21.225), Vector2(31, 16)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/RHand:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.10013081, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 2.923426497090502, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite/LHand:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.10013081, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(30, -19), Vector2(-9.705, -21.525), Vector2(30, -19)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite/LHand:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.10013081, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -2.1903882112528836, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite/LHand/Shield:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.10013081),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite/RHand/Sword:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.10013081),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xeo28"]
 _data = {
 &"Attack": SubResource("Animation_1exfc"),
@@ -504,12 +504,14 @@ animation = &"BodyColors"
 frame = 2
 
 [node name="Cone" type="PointLight2D" parent="Sprite"]
-position = Vector2(49, 0)
+position = Vector2(-0.053009033, -2.1441751e-06)
 rotation = 1.5707964
 color = Color(1, 0.9490196, 0.8392157, 1)
 energy = 0.8
 blend_mode = 2
+shadow_enabled = true
 texture = ExtResource("2_xeo28")
+offset = Vector2(0, -49.05301)
 texture_scale = 0.5
 
 [node name="Circle" type="PointLight2D" parent="Sprite"]
@@ -517,6 +519,7 @@ rotation = 1.5707964
 color = Color(1, 0.9490196, 0.8392157, 1)
 energy = 0.8
 blend_mode = 2
+shadow_enabled = true
 texture = ExtResource("4_kpr8r")
 texture_scale = 0.5
 
@@ -559,11 +562,12 @@ rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_idouy")
 frame = 3
 
-[node name="Area2D" type="Area2D" parent="Sprite/RHand/Sword"]
+[node name="SwordArea" type="Area2D" parent="Sprite/RHand/Sword"]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 
-[node name="SwordCollision" type="CollisionShape2D" parent="Sprite/RHand/Sword/Area2D"]
+[node name="SwordCollision" type="CollisionShape2D" parent="Sprite/RHand/Sword/SwordArea"]
 unique_name_in_owner = true
 position = Vector2(0.49999428, -16.5)
 shape = SubResource("RectangleShape2D_1exfc")
@@ -607,7 +611,6 @@ value = 100.0
 rounded = true
 show_percentage = false
 
-[connection signal="body_entered" from="Sprite/RHand/Sword/Area2D" to="." method="_on_sword_hit"]
 [connection signal="animation_finished" from="Anims" to="." method="_on_animation_finished"]
 [connection signal="target_reached" from="NavAgent" to="." method="_on_nav_agent_target_reached"]
 [connection signal="velocity_computed" from="NavAgent" to="." method="_on_velocity_computed"]

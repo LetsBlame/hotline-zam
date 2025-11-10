@@ -72,7 +72,7 @@ func shoot():
 	var bullet = arrow.instantiate()
 	bullet.transform = %ShootPosition.global_transform
 	#bullet.rotation -= 90
-	owner.add_child(bullet)
+	get_node("/root").add_child(bullet)
 	#current_state = State.IDLE
 	pass
 
