@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://j4rtw5mxopxr"]
+
+[ext_resource type="AudioStream" uid="uid://lui4yabhkeqh" path="res://Sounds/death_splash.wav" id="1_0y787"]
+
+[resource]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("1_0y787")

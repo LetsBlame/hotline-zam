@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://eiorppj5tylb"]
+[gd_scene load_steps=30 format=3 uid="uid://eiorppj5tylb"]
 
 [ext_resource type="Script" uid="uid://cwooxaj0gv2we" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://beul0clgcfi23" path="res://Sprites/light_cone.png" id="2_6t5aa"]
@@ -7,6 +7,10 @@
 [ext_resource type="SpriteFrames" uid="uid://dqty8idc6bni2" path="res://Sprites/Body.tres" id="4_x3wgy"]
 [ext_resource type="SpriteFrames" uid="uid://lfio1ugsj8dh" path="res://Sprites/Hands.tres" id="5_3smsa"]
 [ext_resource type="SpriteFrames" uid="uid://ccblnoaopfpaq" path="res://Sprites/Arrow.tres" id="7_3smsa"]
+[ext_resource type="AudioStream" uid="uid://duwso3ncljxud" path="res://Sounds/bow_ready_fast.wav" id="8_8erm5"]
+[ext_resource type="AudioStream" uid="uid://ropgg0sas3oi" path="res://Sounds/bow_lower.wav" id="9_f1ek2"]
+[ext_resource type="AudioStream" uid="uid://dm0kg111qfxyg" path="res://Sounds/bow_fire.wav" id="10_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://cumcrt5wyk2cq" path="res://Sounds/sword_hit.wav" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("3_6t5aa")
@@ -107,6 +111,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BowRaise:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.06796304),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_f1ek2"]
@@ -259,6 +275,42 @@ tracks/8/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BowRaise:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BowLower:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Shoot:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8erm5"]
 resource_name = "Reload"
@@ -375,6 +427,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [1, 0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shoot:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.00983458),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_x3wgy"]
 resource_name = "UnAim"
@@ -450,6 +514,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BowLower:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wgy"]
@@ -547,6 +623,25 @@ _data = {
 &"RESET": SubResource("Animation_gymyn")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3smsa"]
+streams_count = 1
+stream_0/stream = ExtResource("8_8erm5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8erm5"]
+streams_count = 1
+stream_0/stream = ExtResource("9_f1ek2")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gymyn"]
+random_pitch = 1.2
+random_volume_offset_db = 0.2
+streams_count = 1
+stream_0/stream = ExtResource("10_tx1dd")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pu2lt"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("11_gymyn")
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
@@ -621,5 +716,22 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_pu2lt")
 }
+
+[node name="BowRaise" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_3smsa")
+volume_db = -12.0
+
+[node name="BowLower" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_8erm5")
+volume_db = -12.0
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_gymyn")
+volume_db = -30.0
+
+[node name="SwordHit" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_pu2lt")
+volume_db = -12.0
 
 [connection signal="animation_finished" from="Anims" to="." method="_on_animation_finished"]

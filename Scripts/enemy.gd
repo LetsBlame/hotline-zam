@@ -10,6 +10,9 @@ enum state {IDLE, WANDER, CHASE, ATTACK}
 @onready var NavAgent := get_node("%NavAgent")
 @onready var PlayerRef: CharacterBody2D = GameManager.PlayerRef
 
+var death_sound = preload("res://Sounds/RandomDeathSplash.tres")
+var splatter = preload("res://Scenes/blood_splatter.tscn")
+
 var type: int
 var shielded: int
 var movement_delta: float
@@ -97,6 +100,13 @@ func on_health_changed(value):
 	health = value
 	$ProgressBar.value = health
 	if health <= 0:
+		var audio_player = AutoDeleteAudio.new(death_sound)
+		var blood_splat = splatter.instantiate()
+		blood_splat.global_position = global_position
+		#audio_player.volume_db = -12
+		get_parent().add_child(blood_splat)
+		get_parent().add_child(audio_player)
+		
 		GameManager.level_kills += 1
 		queue_free()
 
@@ -128,6 +138,5 @@ func _on_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_sword_hit(body: Node2D) -> void:
-	print("HIT + %s" % body)
 	if body.has_method("take_damage"):
 		body.take_damage(damage)

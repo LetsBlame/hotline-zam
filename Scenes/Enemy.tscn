@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://jbnt7xmsmgiy"]
+[gd_scene load_steps=37 format=3 uid="uid://jbnt7xmsmgiy"]
 
 [ext_resource type="Texture2D" uid="uid://c4vdodfuafca4" path="res://Sprites/tilesheet.png" id="1_m1htj"]
 [ext_resource type="Script" uid="uid://uchpc3ljpe1c" path="res://Scripts/enemy.gd" id="1_wovta"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cnj2tmdbw7fqp" path="res://Sprites/light_sphere.png" id="4_kpr8r"]
 [ext_resource type="SpriteFrames" uid="uid://lfio1ugsj8dh" path="res://Sprites/Hands.tres" id="5_1exfc"]
 [ext_resource type="Theme" uid="uid://cxjd1bcpbkhxs" path="res://Theme/MainTheme.tres" id="6_mo1ky"]
+[ext_resource type="AudioStream" uid="uid://yseo5njf6idg" path="res://Sounds/sword_draw.wav" id="7_6bs3c"]
+[ext_resource type="AudioStream" uid="uid://dnv0ucfiqmlt8" path="res://Sounds/swing.wav" id="8_uoxpr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("1_m1htj")
@@ -175,6 +177,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0, -0.5759586531581288, -1.103048087260416, 0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SwordSwing:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.081555635),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_uoxpr"]
 resource_name = "Fight"
@@ -250,6 +264,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SwordDraw:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0056899264),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_m1htj"]
@@ -402,6 +428,30 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SwordDraw:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SwordSwing:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xeo28"]
 _data = {
@@ -495,7 +545,18 @@ _data = {
 &"RESET": SubResource("Animation_mo1ky")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uoxpr"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("7_6bs3c")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_idouy"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("8_uoxpr")
+
 [node name="Enemy" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_wovta")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -533,9 +594,11 @@ frame = 2
 [node name="Shield" type="AnimatedSprite2D" parent="Sprite/LHand"]
 unique_name_in_owner = true
 visible = false
+z_index = 1
 z_as_relative = false
-position = Vector2(15, -2)
+position = Vector2(14, -1.0000005)
 rotation = 1.5707964
+scale = Vector2(0.77535063, 0.77535063)
 sprite_frames = SubResource("SpriteFrames_uihya")
 
 [node name="Area2D" type="Area2D" parent="Sprite/LHand/Shield" groups=["Shield"]]
@@ -556,6 +619,7 @@ frame = 2
 [node name="Sword" type="AnimatedSprite2D" parent="Sprite/RHand"]
 unique_name_in_owner = true
 visible = false
+z_index = 1
 z_as_relative = false
 position = Vector2(30, 1)
 rotation = 1.5707964
@@ -590,8 +654,10 @@ libraries = {
 
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
+path_postprocessing = 1
 avoidance_enabled = true
 radius = 25.0
+debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.9214954, 0.12415073, 0.21671072, 1)
 
@@ -610,6 +676,14 @@ theme = ExtResource("6_mo1ky")
 value = 100.0
 rounded = true
 show_percentage = false
+
+[node name="SwordDraw" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_uoxpr")
+volume_db = -20.0
+
+[node name="SwordSwing" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_idouy")
+volume_db = -12.0
 
 [connection signal="animation_finished" from="Anims" to="." method="_on_animation_finished"]
 [connection signal="target_reached" from="NavAgent" to="." method="_on_nav_agent_target_reached"]

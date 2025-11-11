@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjalm7ig5pn8u"]
+[gd_scene load_steps=8 format=3 uid="uid://cjalm7ig5pn8u"]
 
 [ext_resource type="Theme" uid="uid://cxjd1bcpbkhxs" path="res://Theme/MainTheme.tres" id="1_4pnsc"]
 [ext_resource type="Script" uid="uid://djirhpr21r1u8" path="res://Scripts/death_screen.gd" id="1_gb262"]
+[ext_resource type="AudioStream" uid="uid://dxf5o1ofi1be7" path="res://Sounds/death_screen.wav" id="3_1d6nr"]
 
 [sub_resource type="Animation" id="Animation_4pnsc"]
 resource_name = "FadeIn"
@@ -160,6 +161,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 text = "Volver"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_1d6nr")
+autoplay = true
 
 [connection signal="pressed" from="HBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_back_pressed"]

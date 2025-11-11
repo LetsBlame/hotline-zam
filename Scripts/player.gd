@@ -63,6 +63,7 @@ func _physics_process(_delta: float) -> void:
 
 func take_damage(damage: int):
 	$HurtAnim.play("Hurt")
+	$SwordHit.play()
 	GameManager.health -= damage
 	#if GameManager.health <= 0:
 

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://c35ieegn0td5n"]
+
+[ext_resource type="Texture2D" uid="uid://5gin8rdnv4rl" path="res://Sprites/blood_splash1.png" id="1_hvuac"]
+[ext_resource type="Texture2D" uid="uid://bgeukgdu6chc5" path="res://Sprites/blood_splash2.png" id="2_qkjqa"]
+[ext_resource type="Texture2D" uid="uid://7ovs3l3tyuc0" path="res://Sprites/blood_splash3.png" id="3_iipgf"]
+[ext_resource type="Texture2D" uid="uid://d3b5nrphevxhy" path="res://Sprites/blood_splash4.png" id="4_uvvdy"]
+[ext_resource type="Texture2D" uid="uid://c73n7ypc8g2mx" path="res://Sprites/blood_splash5.png" id="5_4ucwy"]
+[ext_resource type="Script" uid="uid://b3xn1v743f8k8" path="res://Scenes/blood_splatter.gd" id="6_qkjqa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5yix0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hvuac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qkjqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_iipgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uvvdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ucwy")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.78431374)
+texture_filter = 1
+scale = Vector2(0.39306358, 0.39306358)
+sprite_frames = SubResource("SpriteFrames_5yix0")
+script = ExtResource("6_qkjqa")
