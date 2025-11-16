@@ -650,6 +650,7 @@ script = ExtResource("1_cvnsp")
 [node name="HeadLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
 rotation = 1.5707964
+enabled = false
 color = Color(1, 0.9490196, 0.8392157, 1)
 energy = 0.8
 blend_mode = 2
@@ -670,12 +671,10 @@ offset = Vector2(-0.5159853, -126.533356)
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
 z_index = 10
-texture_filter = 1
 sprite_frames = ExtResource("4_x3wgy")
 animation = &"BodyColors"
 
 [node name="LeftHand" type="AnimatedSprite2D" parent="Body"]
-texture_filter = 1
 position = Vector2(25, -24)
 sprite_frames = ExtResource("5_3smsa")
 animation = &"Hands"

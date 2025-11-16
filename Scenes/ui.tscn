@@ -7,11 +7,10 @@
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_jxero")
 
-[node name="HealthContainer" type="HBoxContainer" parent="."]
-texture_filter = 1
+[node name="HealthContainer" type="HFlowContainer" parent="."]
 offset_left = 10.0
 offset_top = 9.0
-offset_right = 260.0
+offset_right = 302.0
 offset_bottom = 81.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -24,7 +23,7 @@ text = "Vida: "
 
 [node name="Healthbar" type="ProgressBar" parent="HealthContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 15)
+custom_minimum_size = Vector2(200, 17.68)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
@@ -32,11 +31,10 @@ value = 100.0
 show_percentage = false
 
 [node name="KillInfoContainer" type="HBoxContainer" parent="."]
-texture_filter = 1
-offset_left = 890.0
-offset_top = 61.0
-offset_right = 1098.0
-offset_bottom = 101.0
+offset_left = 799.0
+offset_top = 53.0
+offset_right = 1064.0
+offset_bottom = 93.0
 mouse_filter = 2
 theme = ExtResource("2_qdvrb")
 
@@ -50,11 +48,10 @@ layout_mode = 2
 text = "0 / 0"
 
 [node name="AmmoContainer" type="HBoxContainer" parent="."]
-texture_filter = 1
-offset_left = 886.0
-offset_top = 26.0
-offset_right = 1010.0
-offset_bottom = 66.0
+offset_left = 800.0
+offset_top = 16.0
+offset_right = 924.0
+offset_bottom = 56.0
 mouse_filter = 2
 theme = ExtResource("2_qdvrb")
 

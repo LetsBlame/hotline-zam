@@ -10,7 +10,9 @@ var arrow = preload("res://Scenes/Arrow.tscn")
 #var aiming := false
 var current_state := State.IDLE
 
-#func _ready() -> void:
+func _ready() -> void:
+	if GameManager.current_level != 1:
+		%HeadLight.enabled = true
 	##health = max_health
 	#print(GameManager.current_level)
 
@@ -22,7 +24,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("Aim"):
 			current_state = State.AIMING
 			$Anims.play("Aim")
-			if GameManager.current_level == 1:
+			if GameManager.current_level != 1:
 				%HeadLight.enabled = false
 				%FlashLight.enabled = true
 	
@@ -30,7 +32,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_released("Aim"):
 			$Anims.play("UnAim")
 			
-			if GameManager.current_level == 1:
+			if GameManager.current_level != 1:
 				%HeadLight.enabled = true
 				%FlashLight.enabled = false
 		if event.is_action_pressed("Shoot"):
@@ -86,7 +88,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			current_state = State.RELOADING
 			$Anims.play("Reload")
 			if not Input.is_action_pressed("Aim"):
-				if GameManager.current_level == 1:
+				if GameManager.current_level != 1:
 					%HeadLight.enabled = true
 					%FlashLight.enabled = false
 		"UnAim":
@@ -94,7 +96,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		"Reload":
 			if not Input.is_action_pressed("Aim"):
 				current_state = State.IDLE
-				if GameManager.current_level == 1:
+				if GameManager.current_level != 1:
 					%HeadLight.enabled = true
 					%FlashLight.enabled = false
 			else:

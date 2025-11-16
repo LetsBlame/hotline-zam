@@ -20,6 +20,9 @@ var current_state:= state.IDLE
 
 
 func _ready() -> void:
+	if GameManager.current_level != 1:
+		$Sprite/Cone.enabled = true
+		$Sprite/Circle.enabled = true
 	type = randi_range(0,2)
 	shielded = randi_range(0,2)
 	$Timer.wait_time = randf_range(0.5,3.5)
@@ -85,14 +88,14 @@ func take_damage(_damage: int):
 	#print(current_state)
 	if current_state == state.IDLE or current_state == state.WANDER:
 		%Anims.play("Fight")
-		#print(shielded)
 		%SwordCollision.set_deferred("disabled",false)
+		#print(shielded)
 		if shielded != 2:
 			%ShieldCollision.set_deferred("disabled",false)
 			#print(%ShieldCollision.disabled)
 	$Hurt.play("Hurt")
+	$HitGrunt.play()
 	health -= _damage
-	current_state = state.CHASE
 	$ProgressBar.show()
 	
 
@@ -134,6 +137,8 @@ func _on_nav_agent_target_reached() -> void:
 func _on_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"Attack":
+			current_state = state.CHASE
+		"Fight":
 			current_state = state.CHASE
 
 

@@ -42,6 +42,10 @@ func on_level_select(value):
 			level_enemies = 20
 			PlayerRef = Player.instantiate()
 			get_node("/root").call_deferred("add_child", PlayerRef)
+		3:
+			level_enemies = 20
+			PlayerRef = Player.instantiate()
+			get_node("/root").call_deferred("add_child", PlayerRef)
 	LevelChanged.emit()
 
 func on_health_change(value):

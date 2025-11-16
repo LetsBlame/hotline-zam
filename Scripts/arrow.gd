@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed: float = 500.0
-@export var damage: int = 10
+@export var damage: int = 25
 
 var blocked = false
 var impact_sound = preload("res://Sounds/RandomImpact.tres")
