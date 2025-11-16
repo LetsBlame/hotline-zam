@@ -567,6 +567,7 @@ z_index = 2
 script = ExtResource("1_wovta")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+rotation = -6.2831855
 sprite_frames = SubResource("SpriteFrames_wovta")
 animation = &"BodyColors"
 frame = 2
@@ -666,7 +667,6 @@ unique_name_in_owner = true
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 25.0
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.9214954, 0.12415073, 0.21671072, 1)
 

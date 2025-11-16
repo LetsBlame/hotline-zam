@@ -46,13 +46,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 50
-text = "Play"
+text = "JUGAR"
 
 [node name="quit_btn" type="Button" parent="Background/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Quit"
+text = "SALIR"
 
 [node name="Logo" type="TextureRect" parent="Background"]
 layout_mode = 1

@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 enum state {IDLE, WANDER, CHASE, ATTACK}
 
-@export var speed := randi_range(140,170)
+@export var speed := randi_range(220,250)
 @export var damage := 20
-@export var health:= 70 : set = on_health_changed
+@export var health:= 100 : set = on_health_changed
 @export var attack_radius := 100
 
 @onready var NavAgent := get_node("%NavAgent")
@@ -20,9 +20,7 @@ var current_state:= state.IDLE
 
 
 func _ready() -> void:
-	if GameManager.current_level != 1:
-		$Sprite/Cone.enabled = true
-		$Sprite/Circle.enabled = true
+	$Sprite.rotation = randi_range(-359,359)
 	type = randi_range(0,2)
 	shielded = randi_range(0,2)
 	$Timer.wait_time = randf_range(0.5,3.5)
@@ -37,9 +35,11 @@ func _ready() -> void:
 		1: 
 			%SwordCollision.shape.size = Vector2(38,33)
 			%SwordCollision.position = Vector2(1,-8.5)
+			damage += 5
 		2:
 			%SwordCollision.shape.size = Vector2(29,17)
 			%SwordCollision.position = Vector2(0.5,-16.5)
+			damage += 10
 	%SwordArea.body_entered.connect(_on_sword_hit)
 	
 	#PlayerRef = 
@@ -87,6 +87,9 @@ func set_movement_target(movement_target: Vector2):
 func take_damage(_damage: int):
 	#print(current_state)
 	if current_state == state.IDLE or current_state == state.WANDER:
+		if GameManager.current_level != 1:
+			$Sprite/Cone.enabled = true
+			$Sprite/Circle.enabled = true
 		%Anims.play("Fight")
 		%SwordCollision.set_deferred("disabled",false)
 		#print(shielded)

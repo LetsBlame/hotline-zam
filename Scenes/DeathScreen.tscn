@@ -7,7 +7,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_phjal"]
 shader = ExtResource("2_n2kst")
-shader_parameter/offset = 3.6780001747049997
+shader_parameter/strength = 3.3
+shader_parameter/mix_percentage = 0.3
 
 [sub_resource type="Animation" id="Animation_4pnsc"]
 resource_name = "FadeIn"
@@ -107,7 +108,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6955032, 0.6955031, 0.6955031, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(0, 100)
