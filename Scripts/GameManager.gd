@@ -16,6 +16,7 @@ var scores = [0,0,0]
 
 @onready var Player = preload("res://Scenes/player.tscn")
 @onready var DethScreen = preload("res://Scenes/DeathScreen.tscn")
+@onready var VictoryScreen = preload("res://Scenes/VictoryScreen.tscn")
 var PlayerRef
 
 
@@ -39,11 +40,11 @@ func on_level_select(value):
 			PlayerRef = Player.instantiate()
 			get_node("/root").call_deferred("add_child", PlayerRef)
 		2:
-			level_enemies = 12
+			level_enemies = 9
 			PlayerRef = Player.instantiate()
 			get_node("/root").call_deferred("add_child", PlayerRef)
 		3:
-			level_enemies = 20
+			level_enemies = 12
 			PlayerRef = Player.instantiate()
 			get_node("/root").call_deferred("add_child", PlayerRef)
 	LevelChanged.emit()
@@ -62,8 +63,10 @@ func on_kill(value):
 	if level_kills == level_enemies:
 		if scores[current_level-1] == 0 or scores[current_level-1] > round_timer.time_elapsed:
 			scores[current_level-1] = round_timer.time_elapsed
-		current_level = Level.NONE
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/LevelSelector.tscn")
+		get_tree().paused = true
+		get_node("/root").call_deferred("add_child", VictoryScreen.instantiate())
+		#current_level = Level.NONE
+		#get_tree().call_deferred("change_scene_to_file", "res://Scenes/LevelSelector.tscn")
 		
 func reset_level():
 	GameManager.health = 100

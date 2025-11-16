@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 enum state {IDLE, WANDER, CHASE, ATTACK}
 
-@export var speed := randi_range(220,250)
+@export var speed := randi_range(210,240)
 @export var damage := 20
 @export var health:= 100 : set = on_health_changed
 @export var attack_radius := 100
@@ -35,11 +35,11 @@ func _ready() -> void:
 		1: 
 			%SwordCollision.shape.size = Vector2(38,33)
 			%SwordCollision.position = Vector2(1,-8.5)
-			damage += 5
+			damage += 3
 		2:
 			%SwordCollision.shape.size = Vector2(29,17)
 			%SwordCollision.position = Vector2(0.5,-16.5)
-			damage += 10
+			damage += 5
 	%SwordArea.body_entered.connect(_on_sword_hit)
 	
 	#PlayerRef = 

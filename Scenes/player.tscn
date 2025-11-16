@@ -656,6 +656,7 @@ energy = 0.8
 blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("2_vgqql")
+texture_scale = 1.2
 
 [node name="FlashLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
