@@ -57,6 +57,7 @@ theme_override_font_sizes/font_size = 50
 text = "SALIR"
 
 [node name="Logo" type="TextureRect" parent="Background"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

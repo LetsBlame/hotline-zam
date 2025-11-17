@@ -13,6 +13,8 @@ config_version=5
 config/name="Hotline ZAM"
 run/main_scene="uid://sawl8gc1s3mt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(1, 0.9490196, 0.8392157, 1)
+boot_splash/image="uid://d32g037hfsik5"
 config/icon="res://icon.svg"
 
 [autoload]
