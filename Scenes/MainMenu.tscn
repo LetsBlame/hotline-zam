@@ -19,8 +19,10 @@ script = ExtResource("1_tt5f1")
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(0.5890956, 0.5890956, 0.5890956, 1)
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -15.0
+offset_top = 4.0
+offset_right = 1137.0
+offset_bottom = 652.0
 texture = ExtResource("3_8saeu")
 expand_mode = 1
 
