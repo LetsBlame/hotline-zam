@@ -1,9 +1,8 @@
-[gd_scene load_steps=76 format=4 uid="uid://ci8dvm4lrxbg4"]
+[gd_scene load_steps=75 format=4 uid="uid://ci8dvm4lrxbg4"]
 
 [ext_resource type="Texture2D" uid="uid://c4vdodfuafca4" path="res://Sprites/tilesheet.png" id="1_x5s1r"]
 [ext_resource type="TileSet" uid="uid://cbengsdqguaih" path="res://Sprites/Tilesheet.tres" id="2_62evj"]
 [ext_resource type="PackedScene" uid="uid://duw3txsvl5sfn" path="res://Scenes/ui.tscn" id="3_lk1ev"]
-[ext_resource type="Script" uid="uid://betxo4wy1ej6o" path="res://Scripts/level_manager.gd" id="4_cbup6"]
 [ext_resource type="PackedScene" uid="uid://jbnt7xmsmgiy" path="res://Scenes/Enemy.tscn" id="5_x6m50"]
 [ext_resource type="Texture2D" uid="uid://cnj2tmdbw7fqp" path="res://Sprites/light_sphere.png" id="6_62evj"]
 
@@ -604,9 +603,6 @@ collision_enabled = false
 navigation_enabled = false
 
 [node name="UI" parent="." instance=ExtResource("3_lk1ev")]
-
-[node name="LevelManager" type="Node" parent="."]
-script = ExtResource("4_cbup6")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.06666667, 0.039215688, 0, 1)

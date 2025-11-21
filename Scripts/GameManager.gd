@@ -1,11 +1,11 @@
 extends Node
 
-enum Level {NONE, ONE, TWO}
+enum Level {NONE, ONE, TWO, THREE}
 
 signal Damaged
 signal Kill
 signal LevelChanged
-	
+
 
 var current_level := Level.NONE: set = on_level_select
 var health := 100: set = on_health_change
@@ -19,13 +19,6 @@ var scores = [0,0,0]
 @onready var VictoryScreen = preload("res://Scenes/VictoryScreen.tscn")
 var PlayerRef
 
-
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-func _process(_delta: float) -> void:
-	pass
 
 func on_level_select(value):
 	if(PlayerRef):
@@ -49,6 +42,7 @@ func on_level_select(value):
 			get_node("/root").call_deferred("add_child", PlayerRef)
 	LevelChanged.emit()
 
+
 func on_health_change(value):
 	health = value
 	Damaged.emit()
@@ -56,7 +50,8 @@ func on_health_change(value):
 		get_tree().paused = true
 		get_node("/root").call_deferred("add_child", DethScreen.instantiate())
 		#reset_level()
-	
+
+
 func on_kill(value):
 	level_kills = value
 	Kill.emit()
@@ -65,13 +60,11 @@ func on_kill(value):
 			scores[current_level-1] = round_timer.time_elapsed
 		get_tree().paused = true
 		get_node("/root").call_deferred("add_child", VictoryScreen.instantiate())
-		#current_level = Level.NONE
-		#get_tree().call_deferred("change_scene_to_file", "res://Scenes/LevelSelector.tscn")
-		
+
+
 func reset_level():
 	GameManager.health = 100
 	current_level = current_level
 	level_kills = 0
 	LevelChanged.emit()
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Levels/Level_%d.tscn" % current_level)
-	

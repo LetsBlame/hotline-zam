@@ -41,17 +41,9 @@ func _ready() -> void:
 			%SwordCollision.position = Vector2(0.5,-16.5)
 			damage += 5
 	%SwordArea.body_entered.connect(_on_sword_hit)
-	
-	#PlayerRef = 
-	#var player_transform = PlayerRef.get_global_transform()
-	#print(player_transform.origin)
-	#set_movement_target(player_transform.origin)
-	#set_movement_target(Vector2(player_transform.x,player_transform.y))
-	#pass
-	#NavAgent.velocity_computed.connect(Callable(_on_velocity_computed))
+
 
 func _process(_delta: float) -> void:
-	#$ProgressBar.global_position = global_position
 	if current_state == state.CHASE:
 		if global_position.distance_to(PlayerRef.global_position) > attack_radius:
 			set_movement_target(PlayerRef.global_position)
@@ -66,8 +58,6 @@ func _physics_process(delta: float) -> void:
 	if NavAgent.is_navigation_finished():
 		return
 	
-
-	
 	movement_delta = speed * delta
 	var next_path_position: Vector2 = NavAgent.get_next_path_position()
 	$Sprite.look_at(next_path_position)
@@ -77,30 +67,29 @@ func _physics_process(delta: float) -> void:
 	else:
 		_on_velocity_computed(new_velocity)
 
+
 func _on_velocity_computed(safe_velocity: Vector2):
 	global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
+
 
 func set_movement_target(movement_target: Vector2):
 	NavAgent.set_target_position(movement_target)
 
 
 func take_damage(_damage: int):
-	#print(current_state)
 	if current_state == state.IDLE or current_state == state.WANDER:
 		if GameManager.current_level != 1:
 			$Sprite/Cone.enabled = true
 			$Sprite/Circle.enabled = true
 		%Anims.play("Fight")
 		%SwordCollision.set_deferred("disabled",false)
-		#print(shielded)
 		if shielded != 2:
 			%ShieldCollision.set_deferred("disabled",false)
-			#print(%ShieldCollision.disabled)
 	$Hurt.play("Hurt")
 	$HitGrunt.play()
 	health -= _damage
 	$ProgressBar.show()
-	
+
 
 func on_health_changed(value):
 	health = value
@@ -109,7 +98,7 @@ func on_health_changed(value):
 		var audio_player = AutoDeleteAudio.new(death_sound)
 		var blood_splat = splatter.instantiate()
 		blood_splat.global_position = global_position
-		#audio_player.volume_db = -12
+		audio_player.volume_db = -12
 		get_parent().add_child(blood_splat)
 		get_parent().add_child(audio_player)
 		
@@ -121,7 +110,6 @@ func _on_timer_timeout() -> void:
 	$Timer.wait_time = randf_range(0.5,3.5)
 	if current_state == state.IDLE:
 		current_state = state.WANDER
-		#randf_range(-30,30)
 		var wander_target:=	Vector2(global_position.x+randf_range(-50,50),global_position.y+randf_range(-50,50))
 		set_movement_target(wander_target)
 	if current_state == state.WANDER and not NavAgent.is_target_reachable:

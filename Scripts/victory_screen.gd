@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var level_time = GameManager.round_timer.time_elapsed
 	var lt_min = floor(level_time / 60)

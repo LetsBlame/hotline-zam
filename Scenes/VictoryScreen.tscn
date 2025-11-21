@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxaybgs8n5hah"]
+[gd_scene load_steps=11 format=3 uid="uid://dxaybgs8n5hah"]
 
-[ext_resource type="Script" uid="uid://y0yw0wkblhli" path="res://Scenes/victory_screen.gd" id="1_1mj8m"]
+[ext_resource type="Script" uid="uid://y0yw0wkblhli" path="res://Scripts/victory_screen.gd" id="1_1mj8m"]
 [ext_resource type="Shader" uid="uid://l5yrbdxw376g" path="res://Sprites/Blur.gdshader" id="2_j7jqh"]
 [ext_resource type="Theme" uid="uid://cxjd1bcpbkhxs" path="res://Theme/MainTheme.tres" id="3_fjces"]
-[ext_resource type="AudioStream" uid="uid://dxf5o1ofi1be7" path="res://Sounds/death_screen.wav" id="4_fv7sy"]
 [ext_resource type="FontFile" uid="uid://nvhdpgfuco5f" path="res://Theme/justicechrome.ttf" id="4_j7jqh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_phjal"]
@@ -287,11 +286,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 text = "Volver"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("4_fv7sy")
-autoplay = true
 
 [node name="NewRecord" type="Label" parent="."]
 unique_name_in_owner = true

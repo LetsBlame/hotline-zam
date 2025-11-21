@@ -1,9 +1,8 @@
-[gd_scene load_steps=74 format=4 uid="uid://q6l4hde2d4m3"]
+[gd_scene load_steps=73 format=4 uid="uid://q6l4hde2d4m3"]
 
 [ext_resource type="Texture2D" uid="uid://c4vdodfuafca4" path="res://Sprites/tilesheet.png" id="1_n6t8q"]
 [ext_resource type="TileSet" uid="uid://cbengsdqguaih" path="res://Sprites/Tilesheet.tres" id="2_4ju3q"]
 [ext_resource type="PackedScene" uid="uid://duw3txsvl5sfn" path="res://Scenes/ui.tscn" id="3_axppo"]
-[ext_resource type="Script" uid="uid://betxo4wy1ej6o" path="res://Scripts/level_manager.gd" id="4_dafx8"]
 [ext_resource type="PackedScene" uid="uid://jbnt7xmsmgiy" path="res://Scenes/Enemy.tscn" id="5_inorh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2dy8h"]
@@ -597,9 +596,6 @@ tile_set = ExtResource("2_4ju3q")
 navigation_enabled = false
 
 [node name="UI" parent="." instance=ExtResource("3_axppo")]
-
-[node name="LevelManager" type="Node" parent="."]
-script = ExtResource("4_dafx8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.5012958, 0.545854, 0.67473406, 1)
